@@ -2,11 +2,11 @@
   "name": "game-engine",
   "version": "1.0.0",
   "description": "Reusable game engine",
-  "main": "./built/index.js",
+  "main": "./build/index.js",
   "scripts": {
-    "start": "node ./built/index.js",
+    "start": "node ./build/index.js",
     "dev": "tsc-watch --onSuccess 'npm start'",
-    "demo": "tsc-watch --onSuccess 'node ./built/demo.js'"
+    "demo": "tsc-watch --onSuccess 'node ./build/demo.js'"
   },
   "repository": {
     "type": "git",
