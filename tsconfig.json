@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./built",
+    "allowJs": true,
+    "target": "ES6",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["ES5", "ES6", "DOM"],
+    "typeRoots": [
+      "./@types",
+      "./node_modules/@types",
+    ]
+  },
+  "include": ["./src/**/*"],
+}
