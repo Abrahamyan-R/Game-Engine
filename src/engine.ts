@@ -9,11 +9,11 @@ interface EngineOptions {
   webSocketPort: number,
 }
 
-enum HTTP_METHODS {
-  get,
-  post,
-  put,
-  delete,
+export enum HTTP_METHODS {
+  GET = 'get',
+  POST = 'post',
+  PUT = 'put',
+  DELETE = 'delete',
 }
 
 export class Engine {
@@ -58,13 +58,13 @@ export class Engine {
     this.app.use(route, newRouter);
   }
 
-  public appendPathToRouter(route: string, method: string, path: string, middlewares) {
+  public appendPathToRouter(route: string, method: HTTP_METHODS, path: string, middlewares: express.RequestHandler[]) {
     const router: express.Router = this.routes.get(route);
 
     if (!router) {
       throw new Error('Router does not exist for specified route');
     }
-
+    
     if (!this.allowedHttpMethods.has(method)) {
       throw new Error('Specified http method not allowed');
     }

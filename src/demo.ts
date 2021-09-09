@@ -1,4 +1,4 @@
-import { Engine } from './engine';
+import { Engine, HTTP_METHODS } from './engine';
 
 const engine = new Engine({
   webServerPort: 4689,
@@ -6,9 +6,9 @@ const engine = new Engine({
 });
 
 engine.addRoute('/users');
-engine.appendPathToRouter('/users', 'get', '/', (req, res) => {
+engine.appendPathToRouter('/users', HTTP_METHODS.GET, '/', [(req, res) => {
   res.json({ message: 'Get users list' });
-});
+}]);
 
 const middlewares = [
   (req, res, next) => {
@@ -20,7 +20,7 @@ const middlewares = [
   }
 ];
 
-engine.appendPathToRouter('/users', 'post', '/', middlewares);
+engine.appendPathToRouter('/users', HTTP_METHODS.POST, '/', middlewares);
 
 engine.addMiddleware((req, res) => {
   res.status(404).json({ message: 'Requested endpoint not found' });

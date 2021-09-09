@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Engine = void 0;
+exports.Engine = exports.HTTP_METHODS = void 0;
 const http = require("http");
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 var HTTP_METHODS;
 (function (HTTP_METHODS) {
-    HTTP_METHODS[HTTP_METHODS["get"] = 0] = "get";
-    HTTP_METHODS[HTTP_METHODS["post"] = 1] = "post";
-    HTTP_METHODS[HTTP_METHODS["put"] = 2] = "put";
-    HTTP_METHODS[HTTP_METHODS["delete"] = 3] = "delete";
-})(HTTP_METHODS || (HTTP_METHODS = {}));
+    HTTP_METHODS["GET"] = "get";
+    HTTP_METHODS["POST"] = "post";
+    HTTP_METHODS["PUT"] = "put";
+    HTTP_METHODS["DELETE"] = "delete";
+})(HTTP_METHODS = exports.HTTP_METHODS || (exports.HTTP_METHODS = {}));
 class Engine {
     constructor(options) {
         this.allowedHttpMethods = new Set(['get', 'post', 'put', 'delete']);
